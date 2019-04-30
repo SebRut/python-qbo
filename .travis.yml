@@ -13,7 +13,7 @@ install:
 
 script:
   - set -e
-  - pdoc --html python-qbo
+  - pdoc --html qbo
 
 deploy:
   - provider: pypi
