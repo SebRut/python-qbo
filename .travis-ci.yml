@@ -1,0 +1,32 @@
+language: python
+python:
+  - '3.6'
+
+env:
+  global:
+    # Doctr deploy key for SebRut/python-qbo
+    - secure: "DIkqca17LPhuJaEGzsnCHiFgOItOpxgseWQsiDHCfwdSlrgG8K6+Bi0Gqfhp3tbUieT2L65zpmWt5dsyIFR81pf8oHcoF5ihciX1dkCRS7dGrqlX5uBH/3O5skszXnSpeKFy/vkFxGOqBBFMDTi1pdLNgTryUfP2pk/+mHAi5PYQ7AQWRfifMd0tBTMRE98Zng1rFeOZa4lnOWdy0h+YUUPXUPu7W8XfZwWIi30STXw/X+iZZDHq43uG0+H+V5QuIVmLUTLdBzzDDHN+SqXC69S7StwQ8mRUSvvtZXWdaFYb8tD7knGtcbNtvrdPZX27hHgg4iGYZ+GodvT7qTiomIyZ2uNGG4YshDp5rAr0B8n2H3vncc3hPekYwrGvaIe00Ipx/mXsCJCJ072DyfFVkzVySRRmHiDq60rKTBTSvWjwcPr8+SRibStugXFCWWJEprbWutenHavQfjW+2nmB1TPBa0QML3wkhF/JfKYFpKZZtYwSXlAg8G410HmSCsjnIxaQeh2SXMgbsOfc7nTs7D75XXAQSYgA87x7FTH7zl80cOEmDvjZfZU0/z+fwuSQFHGrQxsPwaQDg6/It5do8c0/XOpM0DlsfCAcVMapRGNLFubReRw+b99p9msUGtHmqa2ONXrpcr78aL3/IolzcC8cWxy7vxzPo5AMaXw7bOY="
+
+install:
+  - pip install -r requirements.txt
+  - pip install -r requirements-dev.txt
+
+script:
+  - set -e
+  - pdoc --html pygrocy
+
+deploy:
+  - provider: pypi
+    user: SebRut
+    password:
+      secure: "t5lk5qiTAJGb6rTMFzkXql37K1mNU3xZqxBbMx8otewGaDytv6FFJJaC0iFZWKeHeikzVX4WRUCEXQFqH6I6xbgc7tmZQKwQJUteSjc4Sk5wX1hHlCYcFnZmq198jTszaCtyqhJfLRR2poXuZKDvZLiALAyv8iU2uHl0cKzrlO29ha8MFIEijnfCFQfOPnXyIDr9F5ksSOdwSMiX5xPnRQiJE/M4Qp6KaXIdiyS53PJ77J1HE8egTED4sItX1EE2FM32AWEjbw6nU0ay4VKmPHEMT+pz4YPJ70ZRQ1GrB0ymdpnB3e194PKRg1VLzg+3LLory7ARiTsgpqp4wT4TjiFkLD7RvJBDWqFfsz/Va+dVTF0ctOBpGRV9pd8lcHGbVVnuhYvbW3/Vpuhk2T19FZPUk0CtDfs2h2cxl1M2nzKcfIniJhUUJ5GckPhYKg8QCp3u9KlmP+vstY+2OwK21FrW+WNJg7vnKf9TpB/AxKu3qcIXL8jRFfCNPkx0As23GEoNYQxeKT3OLlD939zU/IEaEMkDaKnVPu1wm5Jkn+IrGlsUpTRX7RL9ZRZgsJjeIDXAjNbV3orVtY1ZUHnDiGTU4UFpl0bxA5eY3e4TbrmhDJ/hELcQFTWgSOyBAlxDMKDDdzjrjanKYuLkbewlRllRYWrrArfl0G26BUEgHa0="
+    on:
+      tags: true
+    skip_existing: true
+    skip_cleanup: true
+  - provider: script
+    script: doctr deploy . --built-docs html/ --build-tags
+    on:
+      tags: true
+    skip_existing: true
+    skip_cleanup: true
