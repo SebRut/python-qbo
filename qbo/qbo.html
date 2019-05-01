@@ -33,6 +33,25 @@ from .utils import parse_int
 urllib3.disable_warnings(exceptions.InsecureRequestWarning)
 
 
+class MachineInfo(object):
+    def __init__(self, parsed_json: dict):
+        self._serial_number = parsed_json[&#39;serialNumber&#39;]
+        self._mac_address = parsed_json[&#39;macAddress&#39;]
+        self._version = parsed_json[&#39;version&#39;]
+
+    @property
+    def serial_number(self) -&gt; str:
+        return self._serial_number
+
+    @property
+    def mac_address(self) -&gt; str:
+        return self._mac_address
+
+    @property
+    def version(self) -&gt; str:
+        return self._version
+
+
 class MaintenanceStatus(object):
     def __init__(self, parsed_json: dict):
         self._maximum_descale_value = parse_int(parsed_json[&#39;maximumDescaleValue&#39;])
@@ -77,6 +96,10 @@ class MaintenanceStatus(object):
     def clean_percent(self) -&gt; float:
         return self.current_clean_value / self.maximum_clean_value
 
+    @property
+    def rinsing_status(self):
+        return self._rinsing_status
+
 
 class Qbo(object):
     def __init__(self, qbo_url: str):
@@ -84,6 +107,12 @@ class Qbo(object):
         self._headers = {
             &#34;accept&#34;: &#34;application/json&#34;
         }
+
+    def machine_info(self):
+        req_url = urljoin(self._qbo_url, &#34;machineInfo&#34;)
+        resp = requests.get(req_url, headers=self._headers, verify=False)
+        parsed_json = resp.json()
+        return MachineInfo(parsed_json)
 
     def maintenance_status(self) -&gt; MaintenanceStatus:
         req_url = urljoin(self._qbo_url, &#34;status/maintenance&#34;)
@@ -107,6 +136,82 @@ class Qbo(object):
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
+<dt id="qbo.qbo.MachineInfo"><code class="flex name class">
+<span>class <span class="ident">MachineInfo</span></span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class MachineInfo(object):
+    def __init__(self, parsed_json: dict):
+        self._serial_number = parsed_json[&#39;serialNumber&#39;]
+        self._mac_address = parsed_json[&#39;macAddress&#39;]
+        self._version = parsed_json[&#39;version&#39;]
+
+    @property
+    def serial_number(self) -&gt; str:
+        return self._serial_number
+
+    @property
+    def mac_address(self) -&gt; str:
+        return self._mac_address
+
+    @property
+    def version(self) -&gt; str:
+        return self._version</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="qbo.qbo.MachineInfo.mac_address"><code class="name">var <span class="ident">mac_address</span></code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">@property
+def mac_address(self) -&gt; str:
+    return self._mac_address</code></pre>
+</details>
+</dd>
+<dt id="qbo.qbo.MachineInfo.serial_number"><code class="name">var <span class="ident">serial_number</span></code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">@property
+def serial_number(self) -&gt; str:
+    return self._serial_number</code></pre>
+</details>
+</dd>
+<dt id="qbo.qbo.MachineInfo.version"><code class="name">var <span class="ident">version</span></code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">@property
+def version(self) -&gt; str:
+    return self._version</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="qbo.qbo.MachineInfo.__init__"><code class="name flex">
+<span>def <span class="ident">__init__</span></span>(<span>self, parsed_json)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Initialize self.
+See help(type(self)) for accurate signature.</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def __init__(self, parsed_json: dict):
+    self._serial_number = parsed_json[&#39;serialNumber&#39;]
+    self._mac_address = parsed_json[&#39;macAddress&#39;]
+    self._version = parsed_json[&#39;version&#39;]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
 <dt id="qbo.qbo.MaintenanceStatus"><code class="flex name class">
 <span>class <span class="ident">MaintenanceStatus</span></span>
 </code></dt>
@@ -156,7 +261,11 @@ class Qbo(object):
 
     @property
     def clean_percent(self) -&gt; float:
-        return self.current_clean_value / self.maximum_clean_value</code></pre>
+        return self.current_clean_value / self.maximum_clean_value
+
+    @property
+    def rinsing_status(self):
+        return self._rinsing_status</code></pre>
 </details>
 <h3>Instance variables</h3>
 <dl>
@@ -242,6 +351,16 @@ def maximum_descale_value(self) -&gt; int:
     return self._maximum_descale_value</code></pre>
 </details>
 </dd>
+<dt id="qbo.qbo.MaintenanceStatus.rinsing_status"><code class="name">var <span class="ident">rinsing_status</span></code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">@property
+def rinsing_status(self):
+    return self._rinsing_status</code></pre>
+</details>
+</dd>
 </dl>
 <h3>Methods</h3>
 <dl>
@@ -279,6 +398,12 @@ See help(type(self)) for accurate signature.</p></section>
             &#34;accept&#34;: &#34;application/json&#34;
         }
 
+    def machine_info(self):
+        req_url = urljoin(self._qbo_url, &#34;machineInfo&#34;)
+        resp = requests.get(req_url, headers=self._headers, verify=False)
+        parsed_json = resp.json()
+        return MachineInfo(parsed_json)
+
     def maintenance_status(self) -&gt; MaintenanceStatus:
         req_url = urljoin(self._qbo_url, &#34;status/maintenance&#34;)
         resp = requests.get(req_url, headers=self._headers, verify=False)
@@ -306,6 +431,20 @@ See help(type(self)) for accurate signature.</p></section>
     self._headers = {
         &#34;accept&#34;: &#34;application/json&#34;
     }</code></pre>
+</details>
+</dd>
+<dt id="qbo.qbo.Qbo.machine_info"><code class="name flex">
+<span>def <span class="ident">machine_info</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def machine_info(self):
+    req_url = urljoin(self._qbo_url, &#34;machineInfo&#34;)
+    resp = requests.get(req_url, headers=self._headers, verify=False)
+    parsed_json = resp.json()
+    return MachineInfo(parsed_json)</code></pre>
 </details>
 </dd>
 <dt id="qbo.qbo.Qbo.maintenance_status"><code class="name flex">
@@ -355,6 +494,15 @@ See help(type(self)) for accurate signature.</p></section>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
+<h4><code><a title="qbo.qbo.MachineInfo" href="#qbo.qbo.MachineInfo">MachineInfo</a></code></h4>
+<ul class="">
+<li><code><a title="qbo.qbo.MachineInfo.__init__" href="#qbo.qbo.MachineInfo.__init__">__init__</a></code></li>
+<li><code><a title="qbo.qbo.MachineInfo.mac_address" href="#qbo.qbo.MachineInfo.mac_address">mac_address</a></code></li>
+<li><code><a title="qbo.qbo.MachineInfo.serial_number" href="#qbo.qbo.MachineInfo.serial_number">serial_number</a></code></li>
+<li><code><a title="qbo.qbo.MachineInfo.version" href="#qbo.qbo.MachineInfo.version">version</a></code></li>
+</ul>
+</li>
+<li>
 <h4><code><a title="qbo.qbo.MaintenanceStatus" href="#qbo.qbo.MaintenanceStatus">MaintenanceStatus</a></code></h4>
 <ul class="">
 <li><code><a title="qbo.qbo.MaintenanceStatus.__init__" href="#qbo.qbo.MaintenanceStatus.__init__">__init__</a></code></li>
@@ -366,12 +514,14 @@ See help(type(self)) for accurate signature.</p></section>
 <li><code><a title="qbo.qbo.MaintenanceStatus.machine_descale_status" href="#qbo.qbo.MaintenanceStatus.machine_descale_status">machine_descale_status</a></code></li>
 <li><code><a title="qbo.qbo.MaintenanceStatus.maximum_clean_value" href="#qbo.qbo.MaintenanceStatus.maximum_clean_value">maximum_clean_value</a></code></li>
 <li><code><a title="qbo.qbo.MaintenanceStatus.maximum_descale_value" href="#qbo.qbo.MaintenanceStatus.maximum_descale_value">maximum_descale_value</a></code></li>
+<li><code><a title="qbo.qbo.MaintenanceStatus.rinsing_status" href="#qbo.qbo.MaintenanceStatus.rinsing_status">rinsing_status</a></code></li>
 </ul>
 </li>
 <li>
 <h4><code><a title="qbo.qbo.Qbo" href="#qbo.qbo.Qbo">Qbo</a></code></h4>
 <ul class="">
 <li><code><a title="qbo.qbo.Qbo.__init__" href="#qbo.qbo.Qbo.__init__">__init__</a></code></li>
+<li><code><a title="qbo.qbo.Qbo.machine_info" href="#qbo.qbo.Qbo.machine_info">machine_info</a></code></li>
 <li><code><a title="qbo.qbo.Qbo.maintenance_status" href="#qbo.qbo.Qbo.maintenance_status">maintenance_status</a></code></li>
 <li><code><a title="qbo.qbo.Qbo.name" href="#qbo.qbo.Qbo.name">name</a></code></li>
 </ul>
