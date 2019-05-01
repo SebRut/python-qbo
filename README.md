@@ -1,4 +1,4 @@
-# pygrocy
+# python-qbo
 [![Build Status](https://travis-ci.com/SebRut/python-qbo.svg?branch=master)](https://travis-ci.com/SebRut/python-qbo)
 [![PyPI](https://img.shields.io/pypi/v/python-qbo.svg)](https://pypi.org/project/python-qbo/)
 [![Coverage Status](https://coveralls.io/repos/github/SebRut/python-qbo/badge.svg?branch=master)](https://coveralls.io/github/SebRut/python-qbo?branch=master)
