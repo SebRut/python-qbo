@@ -15,7 +15,8 @@ setuptools.setup(
     license='MIT',
     packages=setuptools.find_packages(),
     install_requires=[
-        "requests"
+        "requests",
+        "urllib3"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -12,8 +12,12 @@ install:
   - pip install -r requirements-dev.txt
 
 script:
+  - coverage run --source=pygrocy setup.py test
   - set -e
   - pdoc --html qbo
+
+after_success:
+  - coveralls
 
 deploy:
   - provider: pypi
