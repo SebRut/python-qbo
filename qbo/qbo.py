@@ -9,6 +9,25 @@ from .utils import parse_int
 urllib3.disable_warnings(exceptions.InsecureRequestWarning)
 
 
+class MachineInfo(object):
+    def __init__(self, parsed_json: dict):
+        self._serial_number = parsed_json['serialNumber']
+        self._mac_address = parsed_json['macAddress']
+        self._version = parsed_json['version']
+
+    @property
+    def serial_number(self) -> str:
+        return self._serial_number
+
+    @property
+    def mac_address(self) -> str:
+        return self._mac_address
+
+    @property
+    def version(self) -> str:
+        return self._version
+
+
 class MaintenanceStatus(object):
     def __init__(self, parsed_json: dict):
         self._maximum_descale_value = parse_int(parsed_json['maximumDescaleValue'])
@@ -53,6 +72,10 @@ class MaintenanceStatus(object):
     def clean_percent(self) -> float:
         return self.current_clean_value / self.maximum_clean_value
 
+    @property
+    def rinsing_status(self):
+        return self._rinsing_status
+
 
 class Qbo(object):
     def __init__(self, qbo_url: str):
@@ -60,6 +83,12 @@ class Qbo(object):
         self._headers = {
             "accept": "application/json"
         }
+
+    def machine_info(self):
+        req_url = urljoin(self._qbo_url, "machineInfo")
+        resp = requests.get(req_url, headers=self._headers, verify=False)
+        parsed_json = resp.json()
+        return MachineInfo(parsed_json)
 
     def maintenance_status(self) -> MaintenanceStatus:
         req_url = urljoin(self._qbo_url, "status/maintenance")
