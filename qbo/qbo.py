@@ -1,4 +1,6 @@
+from typing import List
 from urllib.parse import urljoin
+from uuid import UUID
 
 import requests
 import urllib3
@@ -77,6 +79,25 @@ class MaintenanceStatus(object):
         return self._rinsing_status
 
 
+class Recipe(object):
+    def __init__(self, parsed_json):
+        self._name = parsed_json['name']
+        self._uid = UUID(parsed_json['uid'])
+        self._uses_hot_milk = parse_int(parsed_json['usesHotMilk']) == 1
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def uid(self) -> UUID:
+        return self._uid
+
+    @property
+    def uses_hot_milk(self) -> bool:
+        return self._uses_hot_milk
+
+
 class Qbo(object):
     def __init__(self, qbo_url: str):
         self._qbo_url = qbo_url
@@ -84,7 +105,7 @@ class Qbo(object):
             "accept": "application/json"
         }
 
-    def machine_info(self):
+    def machine_info(self) -> MachineInfo:
         req_url = urljoin(self._qbo_url, "machineInfo")
         resp = requests.get(req_url, headers=self._headers, verify=False)
         parsed_json = resp.json()
@@ -96,8 +117,14 @@ class Qbo(object):
         parsed_json = resp.json()
         return MaintenanceStatus(parsed_json)
 
-    def name(self):
+    def name(self) -> str:
         req_url = urljoin(self._qbo_url, "settings/name")
         resp = requests.get(req_url, headers=self._headers, verify=False)
         parsed_json = resp.json()
         return parsed_json['name']
+
+    def recipes(self) -> List[Recipe]:
+        req_url = urljoin(self._qbo_url, "recipes")
+        resp = requests.get(req_url, headers=self._headers, verify=False)
+        parsed_json = resp.json()
+        return [Recipe(parsed_json[index]) for index in parsed_json]
