@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.5.4" />
+<meta name="generator" content="pdoc 0.6.2" />
 <title>qbo.qbo API documentation</title>
 <meta name="description" content="" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
-<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.name small{font-weight:normal}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
 <style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
 </head>
@@ -17,12 +17,14 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title"><code>qbo.qbo</code> module</h1>
+<h1 class="title">Module <code>qbo.qbo</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">from urllib.parse import urljoin
+<pre><code class="python">from typing import List
+from urllib.parse import urljoin
+from uuid import UUID
 
 import requests
 import urllib3
@@ -101,6 +103,25 @@ class MaintenanceStatus(object):
         return self._rinsing_status
 
 
+class Recipe(object):
+    def __init__(self, parsed_json):
+        self._name = parsed_json[&#39;name&#39;]
+        self._uid = UUID(parsed_json[&#39;uid&#39;])
+        self._uses_hot_milk = parse_int(parsed_json[&#39;usesHotMilk&#39;]) == 1
+
+    @property
+    def name(self) -&gt; str:
+        return self._name
+
+    @property
+    def uid(self) -&gt; UUID:
+        return self._uid
+
+    @property
+    def uses_hot_milk(self) -&gt; bool:
+        return self._uses_hot_milk
+
+
 class Qbo(object):
     def __init__(self, qbo_url: str):
         self._qbo_url = qbo_url
@@ -108,7 +129,7 @@ class Qbo(object):
             &#34;accept&#34;: &#34;application/json&#34;
         }
 
-    def machine_info(self):
+    def machine_info(self) -&gt; MachineInfo:
         req_url = urljoin(self._qbo_url, &#34;machineInfo&#34;)
         resp = requests.get(req_url, headers=self._headers, verify=False)
         parsed_json = resp.json()
@@ -120,11 +141,17 @@ class Qbo(object):
         parsed_json = resp.json()
         return MaintenanceStatus(parsed_json)
 
-    def name(self):
+    def name(self) -&gt; str:
         req_url = urljoin(self._qbo_url, &#34;settings/name&#34;)
         resp = requests.get(req_url, headers=self._headers, verify=False)
         parsed_json = resp.json()
-        return parsed_json[&#39;name&#39;]</code></pre>
+        return parsed_json[&#39;name&#39;]
+
+    def recipes(self) -&gt; List[Recipe]:
+        req_url = urljoin(self._qbo_url, &#34;recipes&#34;)
+        resp = requests.get(req_url, headers=self._headers, verify=False)
+        parsed_json = resp.json()
+        return [Recipe(parsed_json[index]) for index in parsed_json]</code></pre>
 </details>
 </section>
 <section>
@@ -138,6 +165,7 @@ class Qbo(object):
 <dl>
 <dt id="qbo.qbo.MachineInfo"><code class="flex name class">
 <span>class <span class="ident">MachineInfo</span></span>
+<span>(</span><span>parsed_json)</span>
 </code></dt>
 <dd>
 <section class="desc"></section>
@@ -194,26 +222,10 @@ def version(self) -&gt; str:
 </details>
 </dd>
 </dl>
-<h3>Methods</h3>
-<dl>
-<dt id="qbo.qbo.MachineInfo.__init__"><code class="name flex">
-<span>def <span class="ident">__init__</span></span>(<span>self, parsed_json)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Initialize self.
-See help(type(self)) for accurate signature.</p></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def __init__(self, parsed_json: dict):
-    self._serial_number = parsed_json[&#39;serialNumber&#39;]
-    self._mac_address = parsed_json[&#39;macAddress&#39;]
-    self._version = parsed_json[&#39;version&#39;]</code></pre>
-</details>
-</dd>
-</dl>
 </dd>
 <dt id="qbo.qbo.MaintenanceStatus"><code class="flex name class">
 <span>class <span class="ident">MaintenanceStatus</span></span>
+<span>(</span><span>parsed_json)</span>
 </code></dt>
 <dd>
 <section class="desc"></section>
@@ -362,30 +374,10 @@ def rinsing_status(self):
 </details>
 </dd>
 </dl>
-<h3>Methods</h3>
-<dl>
-<dt id="qbo.qbo.MaintenanceStatus.__init__"><code class="name flex">
-<span>def <span class="ident">__init__</span></span>(<span>self, parsed_json)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Initialize self.
-See help(type(self)) for accurate signature.</p></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def __init__(self, parsed_json: dict):
-    self._maximum_descale_value = parse_int(parsed_json[&#39;maximumDescaleValue&#39;])
-    self._current_descale_value = parse_int(parsed_json[&#39;currentDescaleValue&#39;])
-    self._machine_descale_status = parse_int(parsed_json[&#39;machineDescaleStatus&#39;])
-    self._maximum_clean_value = parse_int(parsed_json[&#39;maximumCleanValue&#39;])
-    self._current_clean_value = parse_int(parsed_json[&#39;currentCleanValue&#39;])
-    self._machine_clean_status = parse_int(parsed_json[&#39;machineCleanStatus&#39;])
-    self._rinsing_status = parse_int(parsed_json[&#39;rinsingStatus&#39;])</code></pre>
-</details>
-</dd>
-</dl>
 </dd>
 <dt id="qbo.qbo.Qbo"><code class="flex name class">
 <span>class <span class="ident">Qbo</span></span>
+<span>(</span><span>qbo_url)</span>
 </code></dt>
 <dd>
 <section class="desc"></section>
@@ -398,7 +390,7 @@ See help(type(self)) for accurate signature.</p></section>
             &#34;accept&#34;: &#34;application/json&#34;
         }
 
-    def machine_info(self):
+    def machine_info(self) -&gt; MachineInfo:
         req_url = urljoin(self._qbo_url, &#34;machineInfo&#34;)
         resp = requests.get(req_url, headers=self._headers, verify=False)
         parsed_json = resp.json()
@@ -410,29 +402,20 @@ See help(type(self)) for accurate signature.</p></section>
         parsed_json = resp.json()
         return MaintenanceStatus(parsed_json)
 
-    def name(self):
+    def name(self) -&gt; str:
         req_url = urljoin(self._qbo_url, &#34;settings/name&#34;)
         resp = requests.get(req_url, headers=self._headers, verify=False)
         parsed_json = resp.json()
-        return parsed_json[&#39;name&#39;]</code></pre>
+        return parsed_json[&#39;name&#39;]
+
+    def recipes(self) -&gt; List[Recipe]:
+        req_url = urljoin(self._qbo_url, &#34;recipes&#34;)
+        resp = requests.get(req_url, headers=self._headers, verify=False)
+        parsed_json = resp.json()
+        return [Recipe(parsed_json[index]) for index in parsed_json]</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="qbo.qbo.Qbo.__init__"><code class="name flex">
-<span>def <span class="ident">__init__</span></span>(<span>self, qbo_url)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Initialize self.
-See help(type(self)) for accurate signature.</p></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def __init__(self, qbo_url: str):
-    self._qbo_url = qbo_url
-    self._headers = {
-        &#34;accept&#34;: &#34;application/json&#34;
-    }</code></pre>
-</details>
-</dd>
 <dt id="qbo.qbo.Qbo.machine_info"><code class="name flex">
 <span>def <span class="ident">machine_info</span></span>(<span>self)</span>
 </code></dt>
@@ -440,7 +423,7 @@ See help(type(self)) for accurate signature.</p></section>
 <section class="desc"></section>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">def machine_info(self):
+<pre><code class="python">def machine_info(self) -&gt; MachineInfo:
     req_url = urljoin(self._qbo_url, &#34;machineInfo&#34;)
     resp = requests.get(req_url, headers=self._headers, verify=False)
     parsed_json = resp.json()
@@ -468,11 +451,85 @@ See help(type(self)) for accurate signature.</p></section>
 <section class="desc"></section>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">def name(self):
+<pre><code class="python">def name(self) -&gt; str:
     req_url = urljoin(self._qbo_url, &#34;settings/name&#34;)
     resp = requests.get(req_url, headers=self._headers, verify=False)
     parsed_json = resp.json()
     return parsed_json[&#39;name&#39;]</code></pre>
+</details>
+</dd>
+<dt id="qbo.qbo.Qbo.recipes"><code class="name flex">
+<span>def <span class="ident">recipes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def recipes(self) -&gt; List[Recipe]:
+    req_url = urljoin(self._qbo_url, &#34;recipes&#34;)
+    resp = requests.get(req_url, headers=self._headers, verify=False)
+    parsed_json = resp.json()
+    return [Recipe(parsed_json[index]) for index in parsed_json]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="qbo.qbo.Recipe"><code class="flex name class">
+<span>class <span class="ident">Recipe</span></span>
+<span>(</span><span>parsed_json)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Recipe(object):
+    def __init__(self, parsed_json):
+        self._name = parsed_json[&#39;name&#39;]
+        self._uid = UUID(parsed_json[&#39;uid&#39;])
+        self._uses_hot_milk = parse_int(parsed_json[&#39;usesHotMilk&#39;]) == 1
+
+    @property
+    def name(self) -&gt; str:
+        return self._name
+
+    @property
+    def uid(self) -&gt; UUID:
+        return self._uid
+
+    @property
+    def uses_hot_milk(self) -&gt; bool:
+        return self._uses_hot_milk</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="qbo.qbo.Recipe.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">@property
+def name(self) -&gt; str:
+    return self._name</code></pre>
+</details>
+</dd>
+<dt id="qbo.qbo.Recipe.uid"><code class="name">var <span class="ident">uid</span></code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">@property
+def uid(self) -&gt; UUID:
+    return self._uid</code></pre>
+</details>
+</dd>
+<dt id="qbo.qbo.Recipe.uses_hot_milk"><code class="name">var <span class="ident">uses_hot_milk</span></code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">@property
+def uses_hot_milk(self) -&gt; bool:
+    return self._uses_hot_milk</code></pre>
 </details>
 </dd>
 </dl>
@@ -496,7 +553,6 @@ See help(type(self)) for accurate signature.</p></section>
 <li>
 <h4><code><a title="qbo.qbo.MachineInfo" href="#qbo.qbo.MachineInfo">MachineInfo</a></code></h4>
 <ul class="">
-<li><code><a title="qbo.qbo.MachineInfo.__init__" href="#qbo.qbo.MachineInfo.__init__">__init__</a></code></li>
 <li><code><a title="qbo.qbo.MachineInfo.mac_address" href="#qbo.qbo.MachineInfo.mac_address">mac_address</a></code></li>
 <li><code><a title="qbo.qbo.MachineInfo.serial_number" href="#qbo.qbo.MachineInfo.serial_number">serial_number</a></code></li>
 <li><code><a title="qbo.qbo.MachineInfo.version" href="#qbo.qbo.MachineInfo.version">version</a></code></li>
@@ -505,7 +561,6 @@ See help(type(self)) for accurate signature.</p></section>
 <li>
 <h4><code><a title="qbo.qbo.MaintenanceStatus" href="#qbo.qbo.MaintenanceStatus">MaintenanceStatus</a></code></h4>
 <ul class="">
-<li><code><a title="qbo.qbo.MaintenanceStatus.__init__" href="#qbo.qbo.MaintenanceStatus.__init__">__init__</a></code></li>
 <li><code><a title="qbo.qbo.MaintenanceStatus.clean_percent" href="#qbo.qbo.MaintenanceStatus.clean_percent">clean_percent</a></code></li>
 <li><code><a title="qbo.qbo.MaintenanceStatus.current_clean_value" href="#qbo.qbo.MaintenanceStatus.current_clean_value">current_clean_value</a></code></li>
 <li><code><a title="qbo.qbo.MaintenanceStatus.current_descale_value" href="#qbo.qbo.MaintenanceStatus.current_descale_value">current_descale_value</a></code></li>
@@ -520,10 +575,18 @@ See help(type(self)) for accurate signature.</p></section>
 <li>
 <h4><code><a title="qbo.qbo.Qbo" href="#qbo.qbo.Qbo">Qbo</a></code></h4>
 <ul class="">
-<li><code><a title="qbo.qbo.Qbo.__init__" href="#qbo.qbo.Qbo.__init__">__init__</a></code></li>
 <li><code><a title="qbo.qbo.Qbo.machine_info" href="#qbo.qbo.Qbo.machine_info">machine_info</a></code></li>
 <li><code><a title="qbo.qbo.Qbo.maintenance_status" href="#qbo.qbo.Qbo.maintenance_status">maintenance_status</a></code></li>
 <li><code><a title="qbo.qbo.Qbo.name" href="#qbo.qbo.Qbo.name">name</a></code></li>
+<li><code><a title="qbo.qbo.Qbo.recipes" href="#qbo.qbo.Qbo.recipes">recipes</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="qbo.qbo.Recipe" href="#qbo.qbo.Recipe">Recipe</a></code></h4>
+<ul class="">
+<li><code><a title="qbo.qbo.Recipe.name" href="#qbo.qbo.Recipe.name">name</a></code></li>
+<li><code><a title="qbo.qbo.Recipe.uid" href="#qbo.qbo.Recipe.uid">uid</a></code></li>
+<li><code><a title="qbo.qbo.Recipe.uses_hot_milk" href="#qbo.qbo.Recipe.uses_hot_milk">uses_hot_milk</a></code></li>
 </ul>
 </li>
 </ul>
@@ -532,7 +595,7 @@ See help(type(self)) for accurate signature.</p></section>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.5.4</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.6.2</a>.</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad()</script>
