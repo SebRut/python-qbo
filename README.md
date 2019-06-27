@@ -3,6 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/python-qbo.svg)](https://pypi.org/project/python-qbo/)
 [![Coverage Status](https://coveralls.io/repos/github/SebRut/python-qbo/badge.svg?branch=master)](https://coveralls.io/github/SebRut/python-qbo?branch=master)
 [![CodeFactor](https://www.codefactor.io/repository/github/sebrut/python-qbo/badge)](https://www.codefactor.io/repository/github/sebrut/python-qbo)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSebRut%2Fpython-qbo.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSebRut%2Fpython-qbo?ref=badge_shield)
 
 ## Installation
 
@@ -29,3 +30,7 @@ Get maintenance status:
 ```python
 print(qbo.maintenance_status())
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSebRut%2Fpython-qbo.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSebRut%2Fpython-qbo?ref=badge_large)
