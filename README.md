@@ -5,6 +5,8 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/sebrut/python-qbo/badge)](https://www.codefactor.io/repository/github/sebrut/python-qbo)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSebRut%2Fpython-qbo.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSebRut%2Fpython-qbo?ref=badge_shield)
 
+## This project is not being developed atm due to me not having access to a Qbo machine anymore
+
 ## Installation
 
 `pip install python-qbo`
